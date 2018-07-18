@@ -428,8 +428,8 @@ end
 @inline Base.literal_pow(::typeof(^), x::Dual{T}, ::Type{Val{0}}) where {T} =
     Dual{T}(one(value(x)), zero(partials(x)))
 
-@inline @generated function Base.literal_pow(::typeof(^), x::Dual{T}, ::Type{Val{y}}) where {T, y}
-    quote
+for y in 1:3
+    @eval @inline function Base.literal_pow(::typeof(^), x::Dual{T}, ::Type{Val{$y}}) where {T}
         v = value(x)
         expv = v^$y
         deriv = $y * v^$(y - 1)
