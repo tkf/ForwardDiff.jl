@@ -1,5 +1,6 @@
 name = "ForwardDiff"
 uuid = "cdcbfbfc-8bc0-11e8-194f-4dc5537a382f"
+version = "0.8.0"
 
 [deps]
 CommonSubexpressions = "bbf7d656-a473-5ed7-a52c-81e309532950"
